@@ -14,4 +14,7 @@ Home
 
 {% block content %}
 <h1>Home page</h1>
+{% for miasto in user.miasta %}
+<li>{{miasto.nazwa_miasta}}</li>
+{% endfor %}
 {% endblock%}
