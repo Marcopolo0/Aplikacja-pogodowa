@@ -5,14 +5,40 @@ Signup
 {% endblock %}
 
 {% block extracss %}
+<link rel="stylesheet" href="../../static/register/style.css">
 {% endblock %}
 
 {% block extrascript %}
 {% endblock %}
 
 {% block content %}
-<h1>Signup page</h1>
-<form method="POST">
+<div class="register-main-container">
+  <div class="register-center-container">
+    <div class="cat">cat</div>
+    <div class="form">
+      <form method="POST">
+        <div class="">
+          <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+        </div>
+        <div class="">
+          <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name">
+        </div>
+        <div class="">
+          <input type="password" class="form-control" id="password1" name="password1" placeholder="Password">
+        </div>
+        <div class="">
+          <input type="password" class="form-control" id="password2" name="password2" placeholder="Password2">
+          <small id="password2" class="form-text text-muted">Already have account?<a href="login">Login</a></small>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock%}
+
+<!-- <form method="POST">
   <div class="">
     <label for="emial">Email</label>
     <input type="email" class="" id="email" name="email" placeholder="Enter email">
@@ -31,5 +57,4 @@ Signup
   </div>
   <br />
   <button type="submit" class="">Submit</button>
-</form>
-{% endblock%}
+</form> -->
