@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from .models import User, Kraj, Miasto, Atrybut, Jednostka, stanpogody, PogodaDzienna, PogodaGodzinowa
 from . import db
 from flask_login import login_user, current_user
-from flask_mail import Mail, Message 
+from flask_mail import Mail, Message
 from . import mail
 from flask import current_app as app
 from datetime import datetime
@@ -12,25 +12,26 @@ views = Blueprint("views", __name__)
 
 @views.route('/')
 def home():
-    przypisane_miasta = db.session.query(Miasto).filter(Miasto.uzytkownicy!=None).all()
-        for miasto in przypisane_miasta:
-            pogoda = miasto.pogoda_dzienna
-                if(pogoda):
-                    for dzien in pogoda:
-                        
+    ...
+    # przypisane_miasta = db.session.query(Miasto).filter(Miasto.uzytkownicy!=None).all()
+    #     for miasto in przypisane_miasta:
+    #         pogoda = miasto.pogoda_dzienna
+    #             if(pogoda):
+    #                 for dzien in pogoda:
 
-    return render_template('./home/home.html', user = current_user)
+    return render_template('./home/home.html', user=current_user)
+
 
 @views.route('/testMail')
 def test():
     users = db.session.query(User).all()
-    #print(users) #jesli .all() albo .first() nie jest dopisane do query to wypisuje sql, tylko daje pytajniki 
+    # print(users) #jesli .all() albo .first() nie jest dopisane do query to wypisuje sql, tylko daje pytajniki
 
-    #test maila
+    # test maila
     #wiadomosc = Message('Dzień dobry', recipients=['167828@stud.prz.edu.pl'])
-    #mail.send(wiadomosc)
+    # mail.send(wiadomosc)
 
-    return render_template('./testMail/testMail.html', uzytkownicy = users)
+    return render_template('./testMail/testMail.html', uzytkownicy=users)
 
 
 @views.route('/signup', methods=['GET', 'POST'])
@@ -59,6 +60,3 @@ def login():
                 return redirect(url_for('views.home'))
 
     return render_template('./login/login.html')
-
-
-
